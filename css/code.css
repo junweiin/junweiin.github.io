@@ -1,0 +1,202 @@
+/* ═══════════════════════════════════════
+   Code Blocks — Theme Coder
+   ═══════════════════════════════════════ */
+
+/* ─── Code Block Container ─── */
+.post-content figure.highlight,
+.post-content .code-wrapper,
+.highlight {
+  position: relative;
+  margin: var(--space-lg) 0;
+  border-radius: var(--radius);
+  border: var(--border);
+  background: var(--c-bg-code);
+  overflow: hidden;
+}
+
+/* ─── Code Block Header ─── */
+.highlight-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--c-bg-tertiary);
+  border-bottom: var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--c-text-tertiary);
+}
+
+.highlight-lang {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.highlight-copy {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--c-text-tertiary);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  transition: all var(--duration);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.highlight-copy:hover {
+  color: var(--c-text);
+  background: var(--c-bg-hover);
+}
+
+.highlight-copy.copied {
+  color: var(--c-success);
+}
+
+/* ─── Mac Window Dots ─── */
+.highlight-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.highlight-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+.highlight-dots span:nth-child(1) { background: #ff5f56; }
+.highlight-dots span:nth-child(2) { background: #ffbd2e; }
+.highlight-dots span:nth-child(3) { background: #27c93f; }
+
+/* ─── Table / Code Content ─── */
+.highlight table {
+  width: 100%;
+  border: none;
+  margin: 0;
+}
+
+.highlight td {
+  border: none;
+  padding: 0;
+}
+
+.highlight pre {
+  margin: 0;
+  padding: var(--space-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  line-height: 1.7;
+  tab-size: 2;
+  -moz-tab-size: 2;
+}
+
+.highlight pre::-webkit-scrollbar {
+  height: 6px;
+}
+
+.highlight pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.highlight pre::-webkit-scrollbar-thumb {
+  background: var(--c-border);
+  border-radius: 3px;
+}
+
+/* ─── Line Numbers ─── */
+.highlight .gutter {
+  width: 3.5em;
+  text-align: right;
+  padding-right: var(--space-md);
+  border-right: 1px solid var(--c-border-light);
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: top;
+}
+
+.highlight .gutter pre {
+  color: var(--code-gutter);
+  font-size: 0.8rem;
+  padding: var(--space-md) 0;
+  text-align: right;
+}
+
+/* ─── Line Highlight ─── */
+.highlight .line.highlighted {
+  background: var(--code-line-highlight);
+  display: block;
+  margin: 0 calc(var(--space-md) * -1);
+  padding: 0 var(--space-md);
+}
+
+/* ─── Inline Code ─── */
+.post-content code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--c-bg-code);
+  padding: 0.15em 0.45em;
+  border-radius: var(--radius-sm);
+  border: var(--border);
+  font-weight: 500;
+}
+
+/* ─── Syntax Colors ─── */
+.highlight .keyword,
+.highlight .tag .name { color: var(--code-keyword); }
+
+.highlight .string,
+.highlight .tag .attr .value { color: var(--code-string); }
+
+.highlight .comment { color: var(--code-comment); font-style: italic; }
+
+.highlight .function,
+.highlight .title { color: var(--code-function); }
+
+.highlight .number,
+.highlight .literal { color: var(--code-number); }
+
+.highlight .operator { color: var(--code-operator); }
+
+.highlight .class,
+.highlight .built_in,
+.highlight .tag { color: var(--code-class); }
+
+.highlight .variable,
+.highlight .params,
+.highlight .attr { color: var(--code-variable); }
+
+.highlight .regexp { color: var(--code-string); }
+
+.highlight .meta { color: var(--code-comment); }
+
+.highlight .symbol { color: var(--code-number); }
+
+/* ─── Diff ─── */
+.highlight .deletion { color: var(--c-error); background: rgba(248, 81, 73, 0.1); }
+.highlight .addition { color: var(--c-success); background: rgba(63, 185, 80, 0.1); }
+
+/* ─── Math Blocks ─── */
+.math-display {
+  overflow-x: auto;
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
+  text-align: center;
+}
+
+/* ─── Diagrams (Mermaid etc) ─── */
+.mermaid {
+  background: var(--c-bg-code);
+  border: var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  text-align: center;
+}

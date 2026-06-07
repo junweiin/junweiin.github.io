@@ -1,0 +1,50 @@
+# robots.txt for junwei.github.io
+# 阻止所有搜索引擎和AI机器人抓取
+
+# 阻止所有爬虫
+User-agent: *
+Disallow: /
+
+# 特别阻止常见的AI训练爬虫
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: YouBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+# 允许访问 robots.txt 本身
+User-agent: *
+Allow: /robots.txt

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>AI编程踩坑记 — Junwei&#39;s Blog</title>
+  <meta name="description" content="">
+  <meta name="author" content="Junwei">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/img/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/code.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <!-- RSS -->
+  
+
+  <!-- 51la Analytics -->
+  
+  <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+  <script>LA.init({id:"Jqud4Iv4jX9nBtrP",ck:"Jqud4Iv4jX9nBtrP"})</script>
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+  <div class="app">
+    <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <span class="logo-bracket">&lt;</span><span class="logo-text">junwei</span><span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="site-nav" id="siteNav">
+      
+      
+      <a href="/" class="nav-link">首页</a>
+      
+      <a href="/archives" class="nav-link">归档</a>
+      
+      <a href="/categories" class="nav-link">分类</a>
+      
+      <a href="/tags" class="nav-link">标签</a>
+      
+      <a href="/about" class="nav-link">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-actions">
+      
+      
+      <a href="https://github.com/junweiin" class="social-link" target="_blank" rel="noopener" title="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      
+      
+
+      
+      <button class="theme-toggle" id="themeToggle" title="切换主题">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      
+
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main class="main">
+      
+        <article class="post-single">
+  <!-- Progress bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-04-22">
+        2026年04月22日
+      </time>
+      
+      <span class="meta-sep">·</span>
+      <span class="post-category">
+        <a href="/categories/AI/">AI</a>
+      </span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>12 分钟阅读</span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>2333 字</span>
+      
+    </div>
+    <h1 class="post-title">AI编程踩坑记</h1>
+    
+  </header>
+
+  <div class="post-body-wrapper">
+    
+    
+    <aside class="toc-sidebar" id="tocSidebar">
+      <div class="toc-header">
+        <span class="toc-icon">§</span> 目录
+      </div>
+      <nav class="toc-nav">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#No-vben-coding"><span class="toc-text">No vben coding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Prompt-Engineering-is-All-You-Need"><span class="toc-text">Prompt Engineering is All You Need</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Chain-of-Thought-CoT-ReAct"><span class="toc-text">Chain-of-Thought (CoT) &amp; ReAct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Agentic-Workflows-are-Fragile"><span class="toc-text">Agentic Workflows are Fragile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Stateless-vs-Stateful"><span class="toc-text">Stateless vs. Stateful</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Orchestration-over-Models"><span class="toc-text">Orchestration over Models</span></a></li></ol></li></ol>
+      </nav>
+    </aside>
+    
+
+    <div class="post-content" id="postContent">
+      <p>从不翻文档，用chat问AI，还手搓代码。到vibe clding，想要实现什么需求，给AI Agent描述，到现在。我发现，ai对程序员的能力不是降低的，要求反而更高了。</p>
+<p>要了解需求，且能像Ai转达需求，能写清晰的Prompt，小业务小需求，Ai能达到“10X”开发的效果。单复杂需求和大型项目，用Ai开发则是灾难，在当前还存在上下文窗口限制的情况下。</p>
+<p>ps: 改变来的真迅速，从24年到现在，ai发展的太快了。</p>
+<p>我近期的反思如下：</p>
+<h2 id="No-vben-coding"><a href="#No-vben-coding" class="headerlink" title="No vben coding"></a>No vben coding</h2><p>如果是搞着完或试验的心态，可以尝试。我的尝试下，做了记录阅读的页面、记录观看电影的页面。还做了比单页面更大点的项目，实现一个卡片盒笔记法的程序。在复杂一点的，fix的过程就比实现的过程要长了，反而拖慢了效率。</p>
+<p>整理一下从刚开始到现在经历过哪些迅速转身吧。</p>
+<h3 id="Prompt-Engineering-is-All-You-Need"><a href="#Prompt-Engineering-is-All-You-Need" class="headerlink" title="Prompt Engineering is All You Need"></a>Prompt Engineering is All You Need</h3><p>这是最早用chat时的思想，只要提示词写的好，LLM就可以变的更完美。但是后来发现，随着任务变长，复杂化后，提示词工程就无法识别、幻觉、出错，问题很多。超过上下文，就没有记忆，所以没有修错的能力了。</p>
+<h3 id="Chain-of-Thought-CoT-ReAct"><a href="#Chain-of-Thought-CoT-ReAct" class="headerlink" title="Chain-of-Thought (CoT) &amp; ReAct"></a>Chain-of-Thought (CoT) &amp; ReAct</h3><p>让LLM一步一步思考，或思考-行动-观察，就像模拟人类变成，一个页面一个组件的写，写完做测试，通过测试在进行下一步。后来发现，上下文窗口超出后，逻辑循环就出错了。</p>
+<h3 id="Agentic-Workflows-are-Fragile"><a href="#Agentic-Workflows-are-Fragile" class="headerlink" title="Agentic Workflows are Fragile"></a>Agentic Workflows are Fragile</h3><p>在后来agent能力变强了，包括很多agent的出现，代表为langChain框架开始流行，写一个能跑的demo就很容易，但是做大点的或者让agent执行更多步操作，就出错了。主要遇到的问题是，agent容易陷入循环里。蝴蝶效应一样的一个小部分错误，会引发后面连续的错误。然后黑箱运行，人类无法知道llm进行的步骤，无法定位监控问题。</p>
+<h3 id="Stateless-vs-Stateful"><a href="#Stateless-vs-Stateful" class="headerlink" title="Stateless vs. Stateful"></a>Stateless vs. Stateful</h3><p>这个时候，聪明人提出了long-term Memory和状态持久化，让长程编程出现，现在很多大模型已经在这方面能力都很强了，GLM5.1据说能持续工作数小时。</p>
+<h3 id="Orchestration-over-Models"><a href="#Orchestration-over-Models" class="headerlink" title="Orchestration over Models"></a>Orchestration over Models</h3><p>当前的共识是，模型已经很强大了，要怎么Harness它。</p>
+<p>要用工程框架思维，让agent有自愈机制，报错的时候能自动修复。然后让人类在关键的细节的地方介入。结构化输出和沙箱能力。</p>
+<p>之前都在努力让模型变的更聪明，然后人类发现，通用模型无法变的面面俱到，而看使用的人如何定义和指挥它。那么如何指挥它，这就是传统能力，用系统化思维，工程化能力来约束和引导模型。</p>
+<p>模型就是一面镜子，使用的人是什么样，模型就给你什么面子。使用的人能力强，那么模型给的反馈就强。使用的人，能力是，帮我做一个某某某，那模型反馈就是普通的某某某。</p>
+<p>以上是发展的各阶段，也是我踩过的坑。</p>
+<p>当前使用的AGENTS.md</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">一、核心开关 &amp; 行为约束</span><br><span class="line"># Project Operating Mode</span><br><span class="line"></span><br><span class="line">- Goal: 完成【什么任务】，在**不中断**的前提下，充分并行子任务，直到产出完整、可验证的交付物。</span><br><span class="line">- Autonomy: 允许在本仓库内创建/修改/删除文件；禁止写入 `node_modules`, `.git`, `dist`, `build`, `~` 与上级目录。</span><br><span class="line">- Parallelism: 同时运行 ≤ 2 个并行任务（可弹性：队列剩余任务排队）。</span><br><span class="line">- Edit Policy: 默认使用“Auto-accept plan”（先给出计划，随后自动执行，无需逐步确认）。</span><br><span class="line">- Checkpointing: 每轮重大变更后，**必须**更新 `PLAN.md` 与 `TASKS.md`，以便断点续跑。</span><br><span class="line">- Validation First: 任何子任务完成后，都要跑对应校验（构建/测试/脚本），不通过则自我修复后再进入下一个任务。</span><br><span class="line">- Clean State: 每轮结束时必须保持代码库干净（可合并状态），无遗留 bug，文档完整。</span><br><span class="line">官方强调把“规则/分工/节奏”写进 CLAUDE.md 并不断迭代；将其视作高频提示词而非一次性说明书。</span><br><span class="line"></span><br><span class="line">二、两代理架构（Initializer + Coding）</span><br><span class="line"># Two-Agent Architecture</span><br><span class="line"></span><br><span class="line">## Initializer Agent (First Session)</span><br><span class="line">- 搭建初始环境：创建 claude-progress.txt 进度文件、FEATURES.md 功能列表</span><br><span class="line">- 将用户需求展开为完整规格，避免过于具体的实现细节</span><br><span class="line">- 每个 Feature 初始标记为 &quot;failing&quot;</span><br><span class="line"></span><br><span class="line">## Coding Agent (Every Session)</span><br><span class="line">- 从 claude-progress.txt 快速理解工作状态</span><br><span class="line">- 从 FEATURES.md 选择下一个最优先级 Feature 实现</span><br><span class="line">- 每次只做一个 Feature，增量推进</span><br><span class="line">- 结束时更新进度文件和功能状态</span><br><span class="line"></span><br><span class="line">## 关键文件</span><br><span class="line">- `claude-progress.txt`: 每轮 Session 结束时记录：已完成的工作、下一步计划、已知问题</span><br><span class="line">- `FEATURES.md`: 完整功能清单，状态（failing/passing）跟踪</span><br><span class="line"></span><br><span class="line">三、并行调度与任务分片</span><br><span class="line"># Parallel Work Orchestration</span><br><span class="line"></span><br><span class="line">## Work Decomposition</span><br><span class="line">- 将目标拆成可并行的最小工作单元（WUs），每个 WU ≤ 20 分钟理想工时。</span><br><span class="line">- 对每个 WU 明确：输入、产出、校验方式、完成定义(DoD)。</span><br><span class="line"></span><br><span class="line">## Parallel Policy</span><br><span class="line">- `MaxParallel = 2`：任意时刻最多并行 2 个 WU。</span><br><span class="line">- 优先级：阻塞链路优先（解开关键路径），IO/计算重任务交错布置。</span><br><span class="line">- 队列：若待办 &gt; 2，则将其入队，先短任务、后长任务（SJF 优先策略可加速整体吞吐）。</span><br><span class="line"></span><br><span class="line">## Subagents / Tasks</span><br><span class="line">- 对每个 WU 启动一个“任务 Agent”（Task），保持相互独立的上下文与日志文件：`/logs/task-&lt;id&gt;.md`。</span><br><span class="line">- 每个 Task 都必须在结束时写入：</span><br><span class="line">  - `RESULTS/&lt;id&gt;.md`（产出与结论）</span><br><span class="line">  - `PATCHES/&lt;id&gt;.diff`（文件变更集）</span><br><span class="line">  - 更新 `TASKS.md` 的状态（TODO → DOING → DONE）</span><br><span class="line">利用 Task/子代理实现真正并行，并按并发上限运行与排队</span><br><span class="line"></span><br><span class="line">四、长程任务“不断点”运行策略（Context Reset + 断点续跑）</span><br><span class="line"># Long-Run Resilience</span><br><span class="line"></span><br><span class="line">## Context Reset（而非 Compaction）</span><br><span class="line">- 每次新 Session 从零开始，使用结构化 Artifact 传递状态</span><br><span class="line">- 避免 Context Anxiety（接近窗口限制时提前收尾）</span><br><span class="line">- Artifact = claude-progress.txt + Git history + PLAN.md + TASKS.md</span><br><span class="line"></span><br><span class="line">## Checkpoint Files</span><br><span class="line">- `CLAUDE.md`: 本规则文件（高频提示词）</span><br><span class="line">- `PLAN.md`: 总体路线图 + 关键里程碑 + 风险与对策（每次大改必须更新）</span><br><span class="line">- `TASKS.md`: 任务清单（含优先级、预计时长、并行槽位分配、状态）</span><br><span class="line">- `FEATURES.md`: 完整功能列表（初始由 Initializer 创建）</span><br><span class="line">- `claude-progress.txt`: Session 间传递的进度文件</span><br><span class="line">- `RISKS.md`: 风险项台账（触发条件、预案、回滚点）</span><br><span class="line">- `METRICS.md`: 每轮产物质量指标（测试覆盖率、构建时长、性能基线等）</span><br><span class="line"></span><br><span class="line">## Resume Protocol (when session restarts)</span><br><span class="line">1) 打开 `claude-progress.txt` + `PLAN.md` + `TASKS.md`，快速识别未完成项</span><br><span class="line">2) 如果检测到构建/测试红灯，先进入“修复模式”，直至绿灯</span><br><span class="line">3) 恢复并行队列：按 `TASKS.md` 重新分配 `MaxParallel` 槽位，继续执行</span><br><span class="line">将“可恢复的工作清单”写进项目文件，让模型每次启动都能自发现上下文并续跑</span><br><span class="line"></span><br><span class="line">五、质量闸口（构建/测试/验收定义）</span><br><span class="line"># Validation &amp; Definition of Done (DoD)</span><br><span class="line"></span><br><span class="line">- 对每个 WU 必须定义可执行的验收脚本（例如 `npm run test:&lt;scope&gt;`、`pytest -k &lt;marker&gt;`）。</span><br><span class="line">- 进入下一任务前，必须满足：</span><br><span class="line">  - 构建通过</span><br><span class="line">  - 测试通过（新增测试覆盖新代码路径）</span><br><span class="line">  - Lint/Format 通过</span><br><span class="line">  - 若涉及接口/前端：提供最小可运行 Demo 或截图/录屏证据，附在 `RESULTS/&lt;id&gt;.md`。</span><br><span class="line">- 不通过→自修复（最多 2 次），仍失败则降级/回退并记录在 `RISKS.md`。</span><br><span class="line">长程并行任务若无清晰 DoD，容易“并行空转”或积累技术债。</span><br><span class="line"></span><br><span class="line">六、权限与“自动批准”实践（减少打断）</span><br><span class="line"># Permissions &amp; Safety</span><br><span class="line"></span><br><span class="line">- 默认在本项目根目录工作；禁止访问上级目录及系统目录。</span><br><span class="line">- 允许对以下路径写入：`src`, `tests`, `scripts`, `docs`, `public`, `infra`, `configs`。</span><br><span class="line">- 若需写入新目录，必须先在 `PLAN.md` 提案并解释用途，再执行。</span><br><span class="line"></span><br><span class="line">七、组织你的仓库（方便 Agent 自管理）</span><br><span class="line"># Repository Organization</span><br><span class="line"></span><br><span class="line">/docs/CLAUDE.md          ← 本文件（规则文件）</span><br><span class="line">/docs/PLAN.md            ← 路线图 + 里程碑</span><br><span class="line">/docs/TASKS.md           ← 并行任务看板（队列/状态/优先级）</span><br><span class="line">/docs/FEATURES.md        ← 完整功能列表（failing/passing）</span><br><span class="line">/docs/RISKS.md           ← 风险与回滚点</span><br><span class="line">/docs/METRICS.md         ← 质量指标与历史</span><br><span class="line">/claude-progress.txt     ← Session间进度传递</span><br><span class="line">/logs/task-*.md          ← 子任务日志</span><br><span class="line">/RESULTS/&lt;id&gt;.md         ← 子任务产出说明</span><br><span class="line">/PATCHES/&lt;id&gt;.diff       ← 变更集</span><br><span class="line"></span><br><span class="line"># 自主运行的决策规则</span><br><span class="line">- 技术方案不确定 → 选择传统方案</span><br><span class="line">- 两种可行实现 → 选择更简单的那个</span><br><span class="line">- 尝试 3 次后仍有错误 → 记录到 blocked.md，切换任务</span><br><span class="line">- 需求模糊 → 应用最合理的理解，记录假设</span><br><span class="line">- 永远不要提问。做出最佳判断然后继续。</span><br><span class="line"></span><br><span class="line">当上下文变大时，将当前状态写入 tasks/mission.md。</span><br><span class="line">包括：已完成的、下一步的、被阻塞的、未解决的问题。</span><br><span class="line">错误处理：最多重试 3 次。如果没有进展，记录到</span><br><span class="line">pending_for_human.md 然后转到下一个任务。</span><br><span class="line">压缩前，务必保存完整的已修改文件列表。</span><br></pre></td></tr></table></figure>
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E7%BC%96%E7%A8%8B/" class="tag">#编程</a>
+      
+      <a href="/tags/%E6%80%9D%E8%80%83/" class="tag">#思考</a>
+      
+      <a href="/tags/AI/" class="tag">#AI</a>
+      
+    </div>
+    
+
+    <nav class="post-nav">
+      
+      
+    </nav>
+
+    <!-- Comments -->
+    
+    <section class="comments-section" id="comments">
+      
+<script src="https://giscus.app/client.js"
+  data-repo="junweiin/junweiin.github.io"
+  data-repo-id="R_kgDOR30q_Q"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOR30q_c4C59Sx"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+    </section>
+    
+  </footer>
+</article>
+
+      
+    </main>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">&lt;Junwei/&gt;</span>
+      <p class="footer-text">
+        
+        Built with <code>&lt;Hexo /&gt;</code> & caffeine
+        
+      </p>
+    </div>
+    <div class="footer-right">
+      <p class="footer-copy">
+        &copy; 2023–2026 Junwei
+      </p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/code.js"></script>
+  <script src="/js/scroll.js"></script>
+</body>
+</html>
