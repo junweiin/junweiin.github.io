@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Junwei&#39;s Blog — 帆帆帆帆</title>
+  <title>Claude Cli 用第三方大模型API，为什么会Token暴涨 — Junwei&#39;s Blog</title>
   <meta name="description" content="">
   <meta name="author" content="Junwei">
   <meta name="robots" content="noindex, nofollow">
@@ -81,49 +81,106 @@
 
     <main class="main">
       
-        <div class="page-category">
-  <header class="page-header">
-    <h1 class="page-title">
-      <span class="section-icon">/</span> AI
-    </h1>
-    <p class="page-desc">2 篇文章</p>
+        <article class="post-single">
+  <!-- Progress bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-07-06">
+        2026年07月06日
+      </time>
+      
+      <span class="meta-sep">·</span>
+      <span class="post-category">
+        <a href="/categories/AI/">AI</a>
+      </span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>3 分钟阅读</span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>423 字</span>
+      
+    </div>
+    <h1 class="post-title">Claude Cli 用第三方大模型API，为什么会Token暴涨</h1>
+    
   </header>
 
-  <section class="post-list">
+  <div class="post-body-wrapper">
     
-    <article class="post-card compact">
-      <div class="post-card-meta">
-        <time>2026.04.04</time>
-      </div>
-      <h3 class="post-card-title">
-        <a href="/9.html">端侧Gemma4尝鲜</a>
-      </h3>
+    
+
+    <div class="post-content" id="postContent">
+      <p>最近用claude cli，接的Minimax 3.0，Token疯了一样。5小时的时间窗口，之前用2.7的时候，虽然需要教，需要指定，但是消耗基本可以打满5小时的工作内容。</p>
+<p>但是用3.0之后，基本上一两个任务就跑满了。3.0虽然更好用了一点，有的问题我没想到的，它读了上下文，能帮我指出。token消耗也是真的，官方也承认有问题。隔三岔五的发道歉公告。</p>
+<p>有没有其他也影响。</p>
+<p>看到一篇文章，claude cli中有在第三方模型引用上也有个问题。——Claude CLI 默认添加的 CCH（Claude Code Attribution Header）导致第三方服务的缓存失效，引发token倍增。</p>
+<blockquote>
+<p>Claude Code 每次向模型发送请求时，会在系统提示词（system prompt）的最开头插入一段特殊字符串，格式类似这样：anthropic-attribution: cch&#x3D;abc123-def456-ghi789-jkl012。这段字符串相当于一个”请求指纹”，每次请求都不一样。</p>
+</blockquote>
+<h3 id="怎么解决这个问题？"><a href="#怎么解决这个问题？" class="headerlink" title="怎么解决这个问题？"></a>怎么解决这个问题？</h3><p>解决方法很简单：在 Claude Code 的配置里禁用 CCH。</p>
+<p>方法 1：设置环境变量</p>
+<p>在启动 Claude Code 之前，设置以下环境变量：</p>
+<p>export CLAUDECODEATTRIBUTIONHEADER&#x3D;0</p>
+<p>或者在 Windows 的命令提示符中：</p>
+<p>set CLAUDECODEATTRIBUTIONHEADER&#x3D;0</p>
+<p>方法 2：修改配置文件</p>
+<p>找到 Claude Code 的 settings.json 文件，添加以下配置：</p>
+<p>{</p>
+<p>“anthropic_attribution_header”: false</p>
+<p>}</p>
+<p>方法 3：命令行参数</p>
+<p>在启动命令中直接指定：</p>
+<p>claude –attribution-header&#x3D;false</p>
+<p>验证是否生效</p>
+<p>设置完成后，完全重启 Claude Code，然后查看请求的 system prompt：</p>
+<p>如果成功，开头不会再有 <code>anthropic-attribution:</code> 开头的行<br>如果失败，那行还会存在</p>
+
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
       
-    </article>
-    
-    <article class="post-card compact">
-      <div class="post-card-meta">
-        <time>2026.04.03</time>
-      </div>
-      <h3 class="post-card-title">
-        <a href="/7.html">本地运行LLM大模型，Ollama，LM Studio体验</a>
-      </h3>
+      <a href="/tags/token/" class="tag">#token</a>
       
-    </article>
+    </div>
     
-  </section>
 
-  
-<nav class="pagination">
-  
-  <a href="/categories/AI/" class="page-btn prev">← Newer</a>
-  
-  <span class="page-info">2 / 2</span>
-  
-</nav>
+    <nav class="post-nav">
+      
+      
+    </nav>
+
+    <!-- Comments -->
+    
+    <section class="comments-section" id="comments">
+      
+<script src="https://giscus.app/client.js"
+  data-repo="junweiin/junweiin.github.io"
+  data-repo-id="R_kgDOR30q_Q"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOR30q_c4C59Sx"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
 
 
-</div>
+    </section>
+    
+  </footer>
+</article>
 
       
     </main>
