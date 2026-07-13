@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="auto">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>合宙Air780E加ESP8266开发智能书柜控制系统 — Junwei&#39;s Blog</title>
+  <meta name="description" content="">
+  <meta name="author" content="Junwei">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="/img/favicon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/code.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+
+  <!-- RSS -->
+  
+
+  <!-- 51la Analytics -->
+  
+  <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+  <script>LA.init({id:"Jqud4Iv4jX9nBtrP",ck:"Jqud4Iv4jX9nBtrP"})</script>
+  
+<meta name="generator" content="Hexo 8.1.1"></head>
+<body>
+  <div class="app">
+    <header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="site-logo">
+      <span class="logo-bracket">&lt;</span><span class="logo-text">junwei</span><span class="logo-bracket">/&gt;</span>
+    </a>
+
+    <nav class="site-nav" id="siteNav">
+      
+      
+      <a href="/" class="nav-link">首页</a>
+      
+      <a href="/archives" class="nav-link">归档</a>
+      
+      <a href="/categories" class="nav-link">分类</a>
+      
+      <a href="/tags" class="nav-link">标签</a>
+      
+      <a href="/about" class="nav-link">关于</a>
+      
+      
+    </nav>
+
+    <div class="header-actions">
+      
+      
+      <a href="https://github.com/junweiin" class="social-link" target="_blank" rel="noopener" title="GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      
+      
+
+      
+      <button class="theme-toggle" id="themeToggle" title="切换主题">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      
+
+      <button class="nav-toggle" id="navToggle" aria-label="菜单">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+    <main class="main">
+      
+        <article class="post-single">
+  <!-- Progress bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-07-13">
+        2026年07月13日
+      </time>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>5 分钟阅读</span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>983 字</span>
+      
+    </div>
+    <h1 class="post-title">合宙Air780E加ESP8266开发智能书柜控制系统</h1>
+    
+  </header>
+
+  <div class="post-body-wrapper">
+    
+    
+
+    <div class="post-content" id="postContent">
+      <p>最近发起了个公益项目，是一个全民阅读的公益图书漂流项目。借阅系统开发完成，开始进行智能漂流书柜的设计。发现以前积累的硬件知识不够用了。在AI的帮助下，重新学习。</p>
+<p>以前手里有个ESP8266的开发板，去年做天气监控用的，已经闲置。拿来做智能书柜的主控。有一个问题没有解决，在AI的帮助下，发现了合宙Air780E这个芯片，支持4G网络。因为ESP8266板载只带WIFI，如果不在室内，WIFI不方便的情况下，4G网络就很有必要。</p>
+<p>研究了一下，这个模块可以通过串口跟ESP8266连接，也就是可以给网络信号。</p>
+<p><img src="https://i.junwei.bid:89/i/2026/07/14/ngu1f.webp" alt="17824540240311"></p>
+<p><img src="https://i.junwei.bid:89/i/2026/07/14/nwxho.webp" alt="17824536850afb"></p>
+<p>用户通过“湖光书匣”小程序，登录后获得开门权限。用户信息跟“淮上书舟”打通。</p>
+<p>扫描书柜的二维码后，打开站点页面，有当前站点的书籍信息，点开门，即可打开智能书柜的门。开门的同时，摄像头拍摄一张现场图片。语音播报“已开门”。用户扫描书籍上的漂流码后，取走书。语音提醒“关门”。漂流码确认时，摄像头拍摄一张现场图片。用户取完书，关上书柜门，语音提醒“已关门”。提醒用户关门成功，如果磁吸没有检测到，则语音提示用户关门。</p>
+<p>在用户靠近智能书柜的时候，毫米波雷达检测到有人靠近，控制器发送命令打开书柜的灯带。</p>
+<p>所有操作都写入同一个数据库，异步传输。</p>
+<p><em>BOM清单</em></p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">模块分类</th>
+<th align="left">推荐规格&#x2F;搜索关键词</th>
+<th align="left">数量</th>
+<th align="left">极限压缩与安装说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left">4G网关</td>
+<td align="left">合宙 Air780E 核心板 + 通用底板</td>
+<td align="left">1套</td>
+<td align="left">买基础款。天线必须用 IPEX 延长线引出柜外。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left">柜内主控</td>
+<td align="left">NodeMCU ESP8266 (CH340版)</td>
+<td align="left">1个</td>
+<td align="left">如果空间实在放不下，可换为 <code>ESP-12E 核心板</code>。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left">抓拍模块</td>
+<td align="left">ESP32-CAM (OV2640镜头) + 底座</td>
+<td align="left">1套</td>
+<td align="left">安装在柜顶，镜头朝下。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left">执行器</td>
+<td align="left">12V 微型电磁锁 (通电开锁型)</td>
+<td align="left">1把</td>
+<td align="left">搜“柜用微型电磁锁”，体积小巧，断电开锁。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left">驱动模块</td>
+<td align="left">双路 12V 继电器模块 (带光耦)</td>
+<td align="left">1个</td>
+<td align="left">一路控制电磁锁，一路控制 12V 灯条。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left">传感器</td>
+<td align="left">磁控门磁传感器 (常闭型)</td>
+<td align="left">1个</td>
+<td align="left">贴在柜门与柜体接缝处。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left">语音模块</td>
+<td align="left">DY-SV17F 语音模块 (TF卡版) + 3W喇叭</td>
+<td align="left">1套</td>
+<td align="left">语音存 TF 卡。喇叭用双面胶贴在柜门内侧发声。</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left">主电源</td>
+<td align="left">220V转12V 微型隔离电源模块 (3W~5W)</td>
+<td align="left">1个</td>
+<td align="left">搜“嵌入式 12V 电源模块”，体积最小，藏在柜顶。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">5V降压</td>
+<td align="left">12V转5V 降压模块 (LM2596)</td>
+<td align="left">1个</td>
+<td align="left">给 ESP8266、ESP32-CAM、语音模块供电。</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left">3.3V隔离</td>
+<td align="left">12V转3.3V LDO (AMS1117-3.3)</td>
+<td align="left">1个</td>
+<td align="left">专供 Air780E，防止继电器动作导致 4G 掉线。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left">滤波电容</td>
+<td align="left">22μF 钽电容 + 0.1μF 陶瓷电容</td>
+<td align="left">1套</td>
+<td align="left">焊在 Air780E 的 3.3V 引脚旁，吸收射频大电流。</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left">天线配件</td>
+<td align="left">IPEX 4G天线 + IPEX 延长线</td>
+<td align="left">1套</td>
+<td align="left">延长线穿过柜顶小孔，把天线吸在柜子外面。</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left">辅料</td>
+<td align="left">杜邦线、热缩管、双面胶</td>
+<td align="left">若干</td>
+<td align="left">柜内走线用热缩管包好，防止短路。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left">存在传感器</td>
+<td align="left">毫米波雷达 HLK-LD2410 (或 LD2416)</td>
+<td align="left">1个</td>
+<td align="left">安装在柜体正上方或门框内侧，探头朝外。</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left">辅料</td>
+<td align="left">10cm 杜邦线 (母对母)</td>
+<td align="left">3根</td>
+<td align="left">用于连接雷达与 ESP8266。</td>
+</tr>
+</tbody></table>
+<p>手里有个很多年前的旧平板，以前改过电子照片框，用来动态播放图片。后来时间旧了，电池不太好了，家里重新装修后就一直放在柜子里储藏。可以把这个平板改一改，去掉电池，直接从电源模块取电，开机后全屏打开一个网页，显示这个站点的藏书，或者播放幻灯片。</p>
+
+    </div>
+  </div>
+
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/%E6%99%BA%E8%83%BD%E5%8C%96/" class="tag">#智能化</a>
+      
+    </div>
+    
+
+    <nav class="post-nav">
+      
+      
+    </nav>
+
+    <!-- Comments -->
+    
+    <section class="comments-section" id="comments">
+      
+<script src="https://giscus.app/client.js"
+  data-repo="junweiin/junweiin.github.io"
+  data-repo-id="R_kgDOR30q_Q"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOR30q_c4C59Sx"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+    </section>
+    
+  </footer>
+</article>
+
+      
+    </main>
+    <footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-left">
+      <span class="footer-logo">&lt;Junwei/&gt;</span>
+      <p class="footer-text">
+        
+        Built with <code>&lt;Hexo /&gt;</code> & caffeine
+        
+      </p>
+    </div>
+    <div class="footer-right">
+      <p class="footer-copy">
+        &copy; 2023–2026 Junwei
+      </p>
+      
+    </div>
+  </div>
+</footer>
+
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <script src="/js/theme.js"></script>
+  <script src="/js/code.js"></script>
+  <script src="/js/scroll.js"></script>
+</body>
+</html>
