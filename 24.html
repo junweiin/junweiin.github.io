@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Junwei&#39;s Blog — 帆帆帆帆</title>
+  <title>OG Meta，SAP架构下社交媒体信息卡片的实践 — Junwei&#39;s Blog</title>
   <meta name="description" content="">
   <meta name="author" content="Junwei">
   <meta name="robots" content="noindex, nofollow">
@@ -81,132 +81,88 @@
 
     <main class="main">
       
-        <div class="page-archive">
-  <header class="page-header">
-    <h1 class="page-title">
-      <span class="section-icon">$</span> 归档
-    </h1>
-    <p class="page-desc">共 24 篇文章</p>
+        <article class="post-single">
+  <!-- Progress bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-07-25">
+        2026年07月25日
+      </time>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>3 分钟阅读</span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>442 字</span>
+      
+    </div>
+    <h1 class="post-title">OG Meta，SAP架构下社交媒体信息卡片的实践</h1>
+    
   </header>
 
-  <div class="archive-list">
+  <div class="post-body-wrapper">
     
     
-    
-    
-    <div class="archive-year">
-      <h2 class="year-label">2026</h2>
+
+    <div class="post-content" id="postContent">
+      <p>看了bonjour这个项目，突发奇想，是不是也可以搞一个垂直社区玩玩。</p>
+<p>前几年研究了各种社交程序的模式，因为一直想做链接的生意。可是研究到头，发现这个生意现在处处都被封堵，很难做成功。</p>
+<p>但是看了Bonjour这个项目后，我觉得我又行了，就花一天时间就在AI的配合下，把项目实现了。</p>
+<p><img src="https://i.junwei.bid:89/i/2026/07/25/kn5dhs.webp" alt="image"></p>
+<p>但在发朋友圈宣传的时候，总是显示空白的图。作为一个洁癖患者，这肯定不能忍。那么实现发在朋友圈的链接带图的话，是怎么做的呢。</p>
+<p>有个协议，叫Open Graph，它会根据标签生成分享卡片的信息。</p>
+<p>在开发的过程中，发现了一个问题，因为我用的VUE的SPA模式，在OG的使用上就很麻烦。花了一个上午的时间才解决这个问题。</p>
+<h3 id="朋友圈分享原理"><a href="#朋友圈分享原理" class="headerlink" title="朋友圈分享原理"></a>朋友圈分享原理</h3><p>当你在微信朋友圈分享一个链接时，微信服务器会派出<strong>爬虫</strong>（facebookexternalhit）去抓取这个链接的页面内容，根据页面里的 Open Graph 标签生成分享卡片：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">og:title      → 卡片标题</span><br><span class="line">og:description → 卡片描述</span><br><span class="line">og:image       → 卡片缩略图</span><br><span class="line">og:url         → 卡片点击跳转地址</span><br></pre></td></tr></table></figure>
+
+<h3 id="SPA-为什么不能直接写-OG-Meta"><a href="#SPA-为什么不能直接写-OG-Meta" class="headerlink" title="SPA 为什么不能直接写 OG Meta"></a>SPA 为什么不能直接写 OG Meta</h3><p>普通网页（PHP&#x2F;JSP&#x2F;SSR）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户请求 /p/1  →  服务器查询数据库  →  组装含 OG meta 的完整 HTML  →  返回</span><br></pre></td></tr></table></figure>
+
+<p>（Vue SPA）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户请求 /p/1  →  Cloudflare Pages 返回静态 index.html（含 JS）  →  浏览器执行 JS  →  渲染页面</span><br></pre></td></tr></table></figure>
+
+<p>微信爬虫请求时：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">爬虫请求 /p/1  →  Cloudflare Pages 返回 index.html  →  爬虫只读 HTML，不执行 JS  →  看到的只有空壳 HTML，没有 OG meta</span><br></pre></td></tr></table></figure>
     </div>
-    
-    <article class="archive-item">
-      <time class="archive-date">04.22</time>
-      <a href="/18.html" class="archive-title">AI编程踩坑记</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.18</time>
-      <a href="/17.html" class="archive-title">Claude Code连不上官方api，报ERR_BAD_REQUEST</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.17</time>
-      <a href="/16.html" class="archive-title">Agent应用的应用</a>
-      
-      <span class="archive-cat">思考</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.17</time>
-      <a href="/15.html" class="archive-title">Qwen Code Cli 报401错误，结束免费API</a>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.15</time>
-      <a href="/14.html" class="archive-title">agent，真神器</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.10</time>
-      <a href="/13.html" class="archive-title">哥，你该戒烟了</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.09</time>
-      <a href="/12.html" class="archive-title">deepseek上新了</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.08</time>
-      <a href="/11.html" class="archive-title">用自己的内容喂养的SKLLS</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.06</time>
-      <a href="/10.html" class="archive-title">Qwen3.5-9b 深度体验：大上下文下的性能测试</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">04.04</time>
-      <a href="/9.html" class="archive-title">端侧Gemma4尝鲜</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
   </div>
 
-  
-<nav class="pagination">
-  
-  <span class="page-info">1 / 2</span>
-  
-  <a href="/archives/2026/04/page/2/" class="page-btn next">Older →</a>
-  
-</nav>
+  <footer class="post-footer">
+    
+
+    <nav class="post-nav">
+      
+      
+    </nav>
+
+    <!-- Comments -->
+    
+    <section class="comments-section" id="comments">
+      
+<script src="https://giscus.app/client.js"
+  data-repo="junweiin/junweiin.github.io"
+  data-repo-id="R_kgDOR30q_Q"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOR30q_c4C59Sx"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
 
 
-</div>
+    </section>
+    
+  </footer>
+</article>
 
       
     </main>
