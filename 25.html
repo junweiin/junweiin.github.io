@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Junwei&#39;s Blog — 帆帆帆帆</title>
+  <title>给IP生成本地可信证书，启用HTTPS — Junwei&#39;s Blog</title>
   <meta name="description" content="">
   <meta name="author" content="Junwei">
   <meta name="robots" content="noindex, nofollow">
@@ -81,46 +81,92 @@
 
     <main class="main">
       
-        <div class="page-archive">
-  <header class="page-header">
-    <h1 class="page-title">
-      <span class="section-icon">$</span> 归档
-    </h1>
-    <p class="page-desc">共 25 篇文章</p>
+        <article class="post-single">
+  <!-- Progress bar -->
+  <div class="reading-progress" id="readingProgress"></div>
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2026-08-04">
+        2026年08月04日
+      </time>
+      
+      <span class="meta-sep">·</span>
+      <span class="post-category">
+        <a href="/categories/%E6%95%99%E7%A8%8B/">教程</a>
+      </span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>2 分钟阅读</span>
+      
+      
+      <span class="meta-sep">·</span>
+      <span>279 字</span>
+      
+    </div>
+    <h1 class="post-title">给IP生成本地可信证书，启用HTTPS</h1>
+    
   </header>
 
-  <div class="archive-list">
+  <div class="post-body-wrapper">
     
     
-    
-    
-    <div class="archive-year">
-      <h2 class="year-label">2026</h2>
+
+    <div class="post-content" id="postContent">
+      <p>在家里服务器上实验一个后端的点单系统，前端用https，后端用http。会报</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mixed Content: The page at &#x27;https:// &#x27; was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint &#x27;http:// &#x27;. This request has been blocked; the content must be served over HTTPS.</span><br></pre></td></tr></table></figure>
+
+<p>的错误。</p>
+<p>这个问题经常遇到，一般会申请个ssl，给所属域名即可。但这次，我想直接用服务器ip，就涉及到一个新的问题，要给本地ip申请证书，一般ssl的机构都不支持。</p>
+<p>然后发现了一个开源项目——mkcert，直接在服务器执行命令，即可安装证书。</p>
+<p>使用很简单，先agt libnss3-tools，然后wget <a target="_blank" rel="noopener" href="https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64">https://github.com/FiloSottile/mkcert/releases/download/v1.4.4/mkcert-v1.4.4-linux-amd64</a> -O mkcert。</p>
+<p>执行安装，和启动即可。</p>
+<p>这样，你就可以得到一个可以访问的内网地址，但问题是ip，虽然给你证书，但浏览器大概率会提示证书有问题。这就是一个弊端。</p>
+<p>所以还是需要常规的ssl，生成域名的证书。才最终能解决这个问题。就看怎么考量和选择了。</p>
+
     </div>
-    
-    <article class="archive-item">
-      <time class="archive-date">06.08</time>
-      <a href="/20.html" class="archive-title">AI谄媚</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
-    
-    
-    <article class="archive-item">
-      <time class="archive-date">06.01</time>
-      <a href="/19.html" class="archive-title">minimax M3</a>
-      
-      <span class="archive-cat">AI</span>
-      
-    </article>
-    
   </div>
 
-  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/ssl/" class="tag">#ssl</a>
+      
+    </div>
+    
 
-</div>
+    <nav class="post-nav">
+      
+      
+    </nav>
+
+    <!-- Comments -->
+    
+    <section class="comments-section" id="comments">
+      
+<script src="https://giscus.app/client.js"
+  data-repo="junweiin/junweiin.github.io"
+  data-repo-id="R_kgDOR30q_Q"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOR30q_c4C59Sx"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="top"
+  data-theme="dark_dimmed"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+    </section>
+    
+  </footer>
+</article>
 
       
     </main>
